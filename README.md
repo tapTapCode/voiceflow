@@ -194,6 +194,38 @@ Ready for AWS deployment:
 - S3 for call recordings
 - CloudFront for dashboard CDN
 
+## Testing
+
+### Run All Tests
+```bash
+uv run pytest
+```
+
+### Run with Coverage
+```bash
+uv run pytest --cov=backend --cov-report=html
+```
+
+### Run Unit Tests Only
+```bash
+uv run pytest tests/test_inbound_agent.py -v
+```
+
+### Run Integration Tests Only
+```bash
+uv run pytest tests/test_inbound_routes.py -v
+```
+
+### Run Async Tests
+```bash
+uv run pytest --asyncio-mode=auto -v
+```
+
+### Test Coverage Report
+```bash
+uv run pytest --cov=backend --cov-report=term-missing
+```
+
 ## Documentation
 
 - [Setup Guide](./docs/SETUP.md)
