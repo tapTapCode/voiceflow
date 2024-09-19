@@ -35,6 +35,14 @@ class CallMessageRequest(BaseModel):
     """Customer message during call."""
     call_sid: str
     message: str
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "call_sid": "CA123456789abcdef",
+                "message": "I need help with my account",
+            }
+        }
 
 
 class CallEndRequest(BaseModel):
@@ -123,7 +131,7 @@ async def process_message(
     # Process message
     result = await agent.process_customer_message(
         request.call_sid,
-        request.call_message,
+        request.message,
     )
     
     # Update call with sentiment
