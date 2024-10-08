@@ -8,6 +8,7 @@ import os
 
 from backend.database import init_db
 from backend.inbound.routes import router as inbound_router
+from backend.outbound.routes import router as outbound_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -27,6 +28,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(inbound_router)
+app.include_router(outbound_router)
 
 
 @app.on_event("startup")
